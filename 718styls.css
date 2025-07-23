@@ -1,0 +1,185 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.header {
+  background-color: rgb(140, 199, 134);
+}
+
+div {
+}
+
+boby {
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Aroal, sans-serif;
+  color: #333;
+}
+
+.red-text,
+.red {
+  color: red;
+}
+.blue-text {
+  color: blue;
+}
+.green.green-text {
+  color: green;
+}
+.yellow {
+  color: yellow;
+}
+#pink {
+  color: pink;
+}
+.ranbow-linear-gradient {
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+}
+.my-btn {
+  /* background-color: aqua; /* 背景 */
+  /* background-image: url(https://images.pexels.com/photos/1522186/pexels-photo-1522186.jpeg); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: cover;
+  background: url(https://images.pexels.com/photos/1522186/pexels-photo-1522186.jpeg)
+    center no-repeat;
+  text-align: center; /* 文字水平置中 */
+  /* vertical-align: middle; 文字垂直置中 */
+  /* padding: 10px; 內距 */
+  /* padding-top: 15px;
+  padding: 15px 10px 5px 20px; 上 右 下 左 */
+  /* padding: 10px 20px; /* 上下 左右 */
+  /* margin: 10px; /* 外距 */
+  /* border-radius: 100%; /* 圓角 */
+  /* font-weight: 900; 字體粗細 */
+  /* width: 90px; 寬度 */
+  /* height: 90px; 高度 */
+  /* box-shadow: 2px 2px 2px 2px gray; 陰影 */
+  /* margin: 0 auto; */
+  /* line-height: 100px;
+  border: 15px solid gray; */
+  /* 1. 整理背景，用一行搞定 */
+  background: url(https://images.pexels.com/photos/1522186/pexels-photo-1522186.jpeg)
+    center / cover no-repeat;
+
+  /* 2. 設定形狀與大小 */
+  width: 90px;
+  height: 90px;
+  border: 15px solid gray;
+  border-radius: 50%; /* 用 50% 最保險，永遠是正圓 */
+
+  /* 3. 移除有問題的屬性，改用 Flexbox 進行完美置中 (這是現代 CSS 的標準作法) */
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+
+  /* 4. 移除會造成問題的 padding 和 line-height */
+  padding: 0;
+  /* line-height: 100px;  <-- 這個一定要刪掉！ */
+
+  /* 5. 其他文字與外觀樣式 */
+  font-weight: 900;
+  color: black; /* 你可以自己決定文字顏色 */
+  margin: 10px;
+}
+/* 滑鼠移上去的效果 */
+.my-btn:hover {
+  background-color: chocolate;
+}
+/* 正在點擊的效果 */
+.my-btn:active {
+  /* 陰影的效果 */
+  box-shadow: 2px 2px 2px 2px greenyellow;
+}
+/* 紫色的圓形按鈕 */
+.cercle {
+  background: darkmagenta;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  line-height: 100px;
+  border: 10px solid forestgreen;
+}
+/* 主要訊息框 */
+/* 在設計綠色的便利貼方塊本身 */
+.message {
+  padding: 3px 6px; /*設定上下 左右 的內距，讓文字不會貼著邊邊*/
+  border: dimgrey solid 1px; /*設定1px 粗的 實線邊框 顏色暗灰色*/
+  border-radius: 10px; /*設定10px 的圓角，讓方塊邊緣圓滑*/
+  background-color: #42b426; /*背景顏色*/
+  color: white; /*設定裡面的文字顏色為白色*/
+  display: inline-block; /*讓這個元素項文字一樣可以排成一行，但又可以設定寬高和內距*/
+
+  /* position: absolute;
+  position: relative; */
+
+  /*定位(最重要的部分喔~~) */
+  position: fixed; /*設定「固定定位」，讓元素釘在螢幕的某個位置，就算滾動網頁，也不會跑掉*/
+  top: 10px; /*釘在距離[螢幕頂部]10px的地方*/
+  /* bottom: 10px; */
+  right: 10px; /*釘在距離[螢幕右邊]10px的地方*/
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+/* 右上角的紅色數字(就像未讀訊息那樣的紅色數字) */
+.message:after {
+  /* attr 是Attribute(屬性) */
+  content: attr(data-count);
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 0.5rem;
+  color: red;
+}
+/* 讓訊息飛走並消失 */
+.message.move {
+  /* 當一個元素同時擁有message和move兩個class時，動態就會生效 */
+  right: 50%;
+  opacity: 0;
+  transform: translateX(50%);
+}
+/* 定位基準點[外面的大盒子]*/
+.box {
+  width: 100px; /*定義100*100像素的正方形*/
+  height: 100px;
+  background-color: #42b426;
+  position: relative; /*最重要的屬性【相對定位】，不會改變盒子的外觀，但會針對內部所有設定*/
+}
+/* 裡面的小盒子，置中 */
+.box-center {
+  display: inline-block;
+  background-color: #fd345f;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*移動的意思，()他自己的寬度和高度*/
+  font-size: 0.5rem;
+}
+* {
+  box-sizing: border-box;
+}
+.flex-box {
+  border: 1px solid #fd345f;
+  display: flex;
+  width: 400px;
+  height: 400px;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
